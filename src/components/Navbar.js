@@ -1,6 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import lightSwitch from '../sun.png'; // Import light mode switch PNG
+import darkSwitch from '../moon.png'; // Import dark mode switch PNG
 
 export default function Navbar(props) {
     return (
@@ -19,12 +21,10 @@ export default function Navbar(props) {
                             <Link className="nav-link" to="/about">{props.aboutText}</Link>
                         </li>
                     </ul>
-                    <div class={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>
-                        <input class="form-check-input"  onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-                        <label class="form-check-label" for="flexSwitchCheckDefault">
-                        </label>
+                    {/* Use PNG image for the switch */}
+                    <div className={`custom-switch-container text-${props.mode === 'light' ? 'dark' : 'light'}`} onClick={props.toggleMode}>
+                        <img src={props.mode === 'light' ? darkSwitch : lightSwitch} alt="Switch" className="custom-switch" style={{width: '30px', height: '30px'}} />
                     </div>
-
                 </div>
             </div>
         </nav>
@@ -39,4 +39,4 @@ Navbar.propTypes = {
 Navbar.defaultProps = {
     title: 'Set title here',
     aboutText: 'About'
-  };
+};
