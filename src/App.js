@@ -24,7 +24,7 @@ function App() {
     }, 1500);
   };
 
-  const toggleMode = () => {
+  const toggleMode = (props) => {
     if (mode === 'light') {
       setMode('dark');
       document.body.style.backgroundColor = '#042743';
@@ -42,6 +42,7 @@ function App() {
         <Navbar title="Content manipulation tools" mode={mode} toggleMode={toggleMode} key={new Date()} />
         <Alert alert={alert} />
         <div className="container my-3">
+          <div className="continer1"/>
           <Routes>
             <Route path="/about" element={<About mode={mode} />} />
             <Route path="/" element={<Textform showAlert={showAlert} heading="Try Content manipulation tools - word counter, character counter, remove extra spaces" mode={mode} />} />
